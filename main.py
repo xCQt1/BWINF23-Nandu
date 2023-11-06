@@ -1,7 +1,7 @@
 import time
-import csv
-import os
-from itertools import product
+import csv  # Library für die Ausgabe in eine .csv Datei am Ende
+import os   # Für das Öffnen von Excel durch das Terminal
+from itertools import product   # Für das Erstellen der Liste von Kombinationen von True/False
 
 
 def white(entry: list[bool]) -> (bool, bool):       # Methode für ein weißes Bauteil
@@ -12,7 +12,7 @@ def red(entry: list[bool], orientation: list[str]) -> (bool, bool):     # Method
     return tuple([not entry[orientation.index("R")]] * 2)
 
 
-print("\nBWINF Aufgabe Nandu\nLösung und Programm von Till Borckmann")
+print("\nBWINF 2023: Aufgabe 4 (Nandu)\nLösung und Programm von Till Borckmann")
 time.sleep(2)
 
 # Datei einlesen
@@ -23,7 +23,7 @@ with open(f"Examples/{filename}.txt", "r") as file:
 
 # Dateiinhalt wird in einzelne Zeilen aufgeteilt un in Array gespeichert (\n ist ein Zeilenumbruch)
 content = plaintext.split("\n")
-dimensions = content.pop(0).split(" ")  # Speichern des ersten Elementes des neuen Arrays mit den Dimensionen des Steckbrettes in einer separaten Variable
+content.pop(0)  # Entfernen des ersten Elementes mit den Dimensionen des Steckbrettes
 
 # Dateiinhalt an Leerzeichen aufteilen, um die einzelnen Bauteile zu erhalten
 for i in range(len(content)):
